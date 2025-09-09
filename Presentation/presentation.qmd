@@ -105,7 +105,7 @@ include_local_figure("Logos/SSOQE_logo3.png")
 :::
 
 ::: {.column width="80%" .text-right .text-size-body}
-[👤]()Author name
+[👤](https://ondrejmottl.github.io/)Ondřej Mottl
 
 [Science School of Quantitative Ecology 2025]{.text-color-black}
 
@@ -116,6 +116,8 @@ include_local_figure("Logos/SSOQE_logo3.png")
 
 
 ## [This presentation]{.text-bold .r-fit-text} {.title}
+
+<br>
 
 :::: {.columns}
 
@@ -150,6 +152,857 @@ include_local_figure("QR/qr_slides.svg")
 :::
 
 ::::
+
+# [Learning Objectives]{.bold .r-fit-text} {.title}
+
+## What we'll cover today
+
+:::: {.columns}
+
+::: {.column width="45%" .incremental}
+
+### 🎯 **Main Topics**
+
+- Navigate RStudio interface
+- R code execution & understanding environments
+- R Projects
+- Verify your setup
+:::
+
+::: {.column width="55%" .incremental}
+
+### ✅ **By the end, you'll be able to:**
+
+- Find your way around RStudio
+- Understand R environments and memory usage
+- Use R Projects to have reproducible pathing
+- Be ready for SSoQE 2025!
+:::
+
+::::
+
+# [R]{.bold .r-fit-text} {.title}
+
+## R is ...
+
+- A programming language for [statistical]{.text-highlight-midnightGreen} computing and graphics
+- Widely used in academia and industry
+- [Open-source]{.text-highlight-persianGreen} and free to use
+- Highly extensible with packages
+- Supported by a large and [active community]{.text-highlight-satinSheenGold}
+
+## GUI {.text-center}
+
+**GUI** = [G]{.text-highlight-midnightGreen}raphical [U]{.text-highlight-midnightGreen}ser [I]{.text-highlight-midnightGreen}nterface
+
+The choice is yours!
+
+:::: {.columns}
+
+::: {.column width="40%" .text-center}
+
+<br>
+<br>
+
+```{r}
+#| label: rstudio-logo
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Logos/RStudio_logo_flat.svg.png")
+```
+
+### [RStudio](https://rstudio.com/) 
+:::
+
+::: {.column width="30%" .text-center}
+```{r}
+#| label: VSCode-logo
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Logos/VSCode_logo.svg.png")
+```
+
+### [VS Code](https://code.visualstudio.com/)
+:::
+
+::: {.column width="30%" .text-center}
+```{r}
+#| label: positron-logo
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Logos/positron_logo.png")
+```
+
+### [Positron](https://positron.posit.co/)
+:::
+
+::::
+
+## RStudio IDE
+
+```{r}
+#| label: rstudio-ide
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Printscreens/RStudio_IDE_screenshot.png")
+```
+
+::: footer
+[wiki](https://en.wikipedia.org/wiki/RStudio)
+:::
+
+## Default Layout
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
+
+### 📝 **Source Panel**
+
+- Write and edit your R scripts
+- Save your code for later
+- Syntax highlighting & autocomplete
+
+### 💻 **Console Panel** 
+
+- Interactive R session
+- See output and results
+- Quick calculations
+:::
+
+::: {.column width="50%" .incremental}
+
+### 🗂️ **Environment Panel**
+
+- Variables in memory
+- Data objects
+- History of commands
+- Version control (git)
+
+### 📊 **Files/Plots Panel** 
+
+- File browser
+- Plot output
+- Package management
+- Help documentation
+:::
+
+::::
+
+## Navigation Tips
+
+:::: {.columns}
+
+::: {.column width="65%" .incremental}
+
+### ⌨️ **Keyboard Shortcuts**
+
+- `Ctrl + Enter`: Run current line/selection
+- `Ctrl + Shift + Enter`: Run entire script
+- `Ctrl + L`: Clear console
+- `Tab`: Autocomplete
+- `Ctrl + ↑`: Command history
+  
+:::
+
+::: {.column width="35%" .fragment}
+
+### 🎨 **Customization**
+
+- Tools → Global Options
+- Appearance themes
+- Panel layout
+- Code display options
+
+:::
+
+::::
+
+## [Note on practical exercises]{.r-fit-text .text-color-dartmouth-green} {.bg-white}
+
+```{r}
+#| label: practical-exercise-note
+include_local_figure("Exercise/monkey_see_monkey_do_by_adiasarahma.png")
+```
+
+::: footer
+[image by adiasarahma](https://www.deviantart.com/adiasarahma/)
+:::
+
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
+
+<br>
+
+::: {.blockquote}
+1. Use keyboard shortcuts to run code in the console
+2. Customize RStudio appearance (theme, font size)
+:::
+
+`r countdown(minutes = 5)`
+
+
+# [Execution & Environments]{.bold .r-fit-text} {.title}
+
+## Running Code
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
+
+### 🖥️ **Console**
+
+```{r}
+#| label: console-interaction
+#| eval: true
+#| echo: true
+x <- 5
+y <- 10
+result <- x + y
+print(result)
+```
+
+- all [objects]{.text-highlight-midnightGreen} created in the console are stored in the [memory]{.text-highlight-persianGreen} (~ RAM)
+- objects are [temporary!!!]{.text-highlight-satinSheenGold} and will be lost when you close R/RStudio (restart session)
+
+:::
+
+::: {.column width="50%" .fragment .incremental}
+
+### 🗑️ **Memory Management**
+
+```{r}
+#| label: memory-management
+#| eval: false
+#| echo: true
+# Remove specific objects
+rm(data_experiment)
+```
+
+### 👀 **Environment Panel**
+
+- **Objects**: See contents of memory
+- **Types**: Data frames, vectors, functions
+- **Memory usage**: RAM consumption
+
+:::
+
+::::
+
+## Workspace vs Session
+
+:::: {.columns}
+
+::: {.column width="55%" .incremental}
+
+### 💾 **Workspace**
+
+- `.RData` can save objects from previous session
+- [Never do that!!!]{.text-highlight-satinSheenGold} 
+
+::: {.fragment }
+
+- Settings: Tools → Global Options → General
+   + [Uncheck]{.text-highlight-midnightGreen} "Restore .RData into workspace"
+   + "Save workspace to .RData on exit": ["Never"]{.text-highlight-persianGreen}
+- clean R environment often
+   + Shortcut: `Ctrl + Shift + F10`
+
+:::
+
+::::
+
+::: {.column width="45%" .incremental}
+
+### 📝 **What to save?**
+
+- Everything is temporary unless saved on disk
+- save scripts, not objects
+- save important data on drive (as CSV or RDS)
+
+### ✅ **Best Practice**
+
+- Start fresh each session
+- Write all code in scripts
+- Recreate objects from code / load data
+- Ensure reproducibility
+
+:::
+
+::::
+
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
+
+<br>
+
+::: {.blockquote}
+1. Setup RStudio to never save or load `.RData`
+2. Clear your environment using the button or shortcut
+:::
+
+# [R Projects]{.bold .r-fit-text} {.title}
+
+## Project file structure
+
+```{r}
+#| label: file-management
+include_local_figure("Scriberia/file-management-manual-with-text.jpg")
+```
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+
+## Project structure - RStudio Projects
+
+[**R-studio**]{.text-background-dartmouth-green} is using [Projects]{.text-background-brunswick-green} already by default
+
+<br>
+
+```{r}
+#| label: rstudio-project
+knitr::include_graphics("https://ecorepsci.github.io/reproducible-science/img/rstudio-project.jpg")
+```
+
+::: {.footer}
+[Reproducible Data Science](https://ecorepsci.github.io/reproducible-science/index.html)
+:::
+
+## What is an R Project?
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
+
+### 📁 **Self-Contained Workspace**
+
+- `.Rproj` file in root directory
+- Isolated working directory
+- Usage by other software (e.g. Git)
+
+:::
+
+::: {.column width="50%" .incremental}
+
+### 🎯 **Benefits**
+
+- **Isolation**: No interference between projects
+- **Organization**: Clear folder structure
+- **Reproducibility**: Relative file paths 
+- **Version Control**: Git integration
+
+:::
+
+::::
+
+## [Practical Exercise]{.r-fit-text} {.exercise .text-center}
+
+<br>
+
+::: {.blockquote}
+1. Create a new (RStudio) project
+2. Switch between projects
+:::
+
+`r countdown(minutes = 5)`
+
+# [File Paths & the `{here}` Package]{.bold .r-fit-text} {.title}
+
+## Working Directory
+
+:::: columns
+::: {.column width="55%" }
+<br>
+<br>
+
+[@JennyBryan](https://twitter.com/JennyBryan):
+
+::: {.blockquote}
+If the first line of your R script is
+
+```{r}
+#| label: jenny-quote
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+setwd("C:/Users/jenny/path/that/only/I/have")
+```
+
+I will come into your office and **SET YOUR COMPUTER ON FIRE** 🔥.
+:::
+:::
+
+::: {.column width="45%" .fragment}
+```{r}
+#| label: here-here
+include_local_figure("Packages/here_pkg.png")
+```
+
+The [{here} package](https://here.r-lib.org/) is up for rescue! 
+:::
+::::
+
+::: {.footer}
+Artwork by [@allison_horst](https://twitter.com/allison_horst)
+:::
+
+## The Path Problem
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%" .fragment}
+
+### ❌ **What Goes Wrong**
+
+```r
+# This breaks on other computers:
+setwd("C:/Users/John/Documents/Project")
+data <- read.csv("../data/file.csv")
+
+# Different on Mac/Linux:
+setwd("/Users/john/Documents/Project")
+
+# Fragile and non-reproducible
+source("C:/path/to/my/script.R")
+```
+:::
+
+::: {.column width="50%" .fragment .incremental}
+
+### 😱 **Common Issues**
+
+- Code breaks on different computers
+- Collaborators can't run your code
+- Different operating systems
+- Moving project folders
+:::
+
+::::
+
+## [Exercise]{.r-fit-text} {.exercise .text-center}
+
+::: {.blockquote}
+1. install the [{here} package](https://here.r-lib.org/)
+2. try running `here::here()` in your R console
+3. What is the difference between relative and absolute paths?
+:::
+
+`r countdown(minutes = 3)`
+
+## Exercise - rewrite the code using `{here}`
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+```{r}
+#| label: here-exercise
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+# original code
+data <- 
+  read.csv(
+    "C:/Users/jenny/path/that/only/I/have/Data/file.csv"
+  )
+
+source(
+  "C:/Users/jenny/path/that/only/I/have/R/functions.R"
+)
+```
+
+:::
+
+::: {.column width="40%" .fragment}
+
+```{r}
+#| label: here-exercise-solution
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+# solution
+library(here)
+
+data <- 
+  read.csv(
+    here::here(
+      "Data/file.csv"
+    )
+  )
+
+source(
+  here::here(
+    "R/functions.R"
+  )
+)
+```
+
+:::
+
+::::
+
+# [Setup & Check]{.bold .r-fit-text} {.title}
+
+## Required Software Checklist {.text-center}
+
+<br>
+
+- [ ] **R** (version 4.5+ recommended)
+- [ ] **RStudio** (latest version)
+- [ ] **Rtools** (Windows only)
+- [ ] **Git** (for version control)
+
+## Install/update R
+
+:::: {.columns}
+
+::: {.column width="70%"}
+Make sure you have the latest version of R installed. You can check the version by running:
+
+```{r}
+#| label: r-version
+#| echo: true
+#| eval: true
+R.version.string
+```
+
+Install the newest version of R from [CRAN](https://cran.r-project.org/).
+:::
+
+::: {.column width="30%"}
+
+```{r}
+#| label: r-logo
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Logos/R_logo.svg.png")
+```
+:::
+::::
+
+### Bonus
+
+Check out [{updateR}](https://www.danieldsjoberg.com/updater/) package to update R and all installed packages.
+
+
+## Install/update RStudio
+
+Make sure you have the latest version of RStudio installed. You can check the version by running:
+
+```{r}
+#| label: rstudio-version
+#| echo: true
+#| eval: false
+rstudioapi::versionInfo()$version
+# ‘2025.5.1.513’
+```
+
+You can download the newest version of RStudio from [RStudio website](https://rstudio.com/products/rstudio/download/).
+
+```{r}
+#| label: rstudio-logo-2
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Logos/RStudio_logo_flat.svg.png")
+```
+
+## Rtools (Windows only)
+
+[Rtools]{.text-bold} is a collection of tools necessary for [building R packages]{.text-highlight-midnightGreen} on [Windows]{.text-highlight-satinSheenGold}.
+
+You can download Rtools from [CRAN Rtools page](https://cran.r-project.org/bin/windows/Rtools/).
+
+::: {.blockquote}
+You need version compatible with your R version. For R 4.5+, use Rtools 4.5 or later.
+:::
+
+## {usethis} package
+
+:::: {.columns}
+
+::: {.column width="65%"}
+The [{usethis} package](https://usethis.r-lib.org/index.html) is a collection of functions that help automate package and project setup tasks.
+
+Install the package by running:
+```{r}
+#| label: usethis-install
+#| echo: true
+#| eval: false
+install.packages("usethis")
+```
+
+:::
+
+::: {.column width="30%"}
+```{r}
+#| label: usethis-logo
+#| fig-width: 1
+#| fig-height: 1
+knitr::include_graphics("https://usethis.r-lib.org/logo.png")
+```
+:::
+
+::::
+
+# [R packages]{.bold .r-fit-text} {.title}
+
+## Install all required packages
+
+<br>
+
+::: {.blockquote}
+Go to [SSoQE - pre-workshop setup](https://ssoqe.github.io/SSoQE_website/About/pre_workshop.html#packages) and run the provided code chunk in your R console to install all required packages.
+:::
+
+# [Version Control]{.bold .r-fit-text} {.title}
+
+## 
+
+:::: columns
+
+::: {.column width="45%"}
+
+### Git {.text-center}
+
+* local software
+* keep track of changes of files 
+
+<br>
+
+```{r}
+#| label: git-logo
+#| fig-width: 1
+#| fig-height: 1 
+include_local_figure("Logos/Git_icon.svg.png")
+```
+
+:::
+
+::: {.column width="10%" }
+:::
+
+::: {.column width="45%" }
+
+### GitHub {.text-center}
+
+* host server
+* store the (git) data
+* project management, collaboration, publishing
+
+```{r}
+#| label: github-logo
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Logos/GH_Desktop_logo.webp")
+```
+
+:::
+::::
+
+## Half the battle "git hell"
+
+::: {.blockquote}
+Getting all the necessary software installed, configured, and playing nicely together is honestly half the battle ... **Brace yourself for some pain**
+:::
+
+
+```{r}
+#| label: ErrorManagement
+include_local_figure("Scriberia/ErrorManagement.jpg")
+```
+
+::: footer
+[Happy Git and GitHub for the useR](https://happygitwithr.com/install-intro) |
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## [GitHub]{.r-fit-text} {.subtitle .text-center}
+
+## Making the account
+
+You will need a [GitHub account]{.text-color-highlight-primary}.
+
+It is super easy to create one, just go to [GitHub.com](https://github.com/) and follow the instructions.
+
+<br>
+
+::: {.fragment .incremental}
+### Some tips
+
+* Use a professional username, preferably your name
+* Use university/science institute email address
+  * You can gain access to [GitHub Education](https://education.github.com/), e.g. free private repositories!
+:::
+
+## [Git]{.r-fit-text} {.subtitle .text-center}
+
+## 🐚 shell intermezzo
+
+- You will need to use the shell (command line) to interact with Git.
+- The actual tool might differ based on your operating system.
+- Please refer to [this document](https://happygitwithr.com/shell) for more information.
+
+::: {.blockquote .fragment}
+If you are using RStudio, you can use the built-in [terminal]{.text-highlight-persianGreen} (NOT Console).
+:::
+
+## Installation
+
+Is [Git]{.text-color-highlight-midnightGreen} already installed?
+
+Check your [version]{.text-color-highlight-persianGreen}:
+
+```{bash}
+#| label: git-version
+#| echo: true
+#| eval: false
+git --version
+## git version 2.42.0.windows.2
+```
+
+## Installation
+
+::::: {.panel-tabset}
+
+### Windows
+
+Download and install [Git for Windows](https://gitforwindows.org/)
+
+### MacOS
+
+Download and install [Git for MacOS](https://git-scm.com/download/mac)
+
+### Linux
+
+Ubuntu or Debian Linux:
+```{bash}
+#| label: git-install-linux-ubuntu
+#| echo: true
+#| eval: false
+sudo apt-get install git
+```
+
+Fedora or RedHat Linux:
+
+```{bash}
+#| label: git-install-linux-fedora
+#| echo: true
+#| eval: false
+sudo yum install git
+```
+
+:::::
+
+## Configuration
+
+Introduce yourself to Git 👋
+
+❗Note to substitute your name and the email address❗
+
+Use the [same email address]{.text-color-highlight-primary} as the one you used for [GitHub account]{.text-color-highlight-secondary}.
+
+```{bash}
+#| label: git-config
+#| echo: true
+#| eval: false
+git config --global user.name "Jane Doe"
+git config --global user.email "jane@example.com"
+git config --global --list
+```
+
+
+## Can you hear me now?
+
+We now need to make sure that RStudio can communicate with Git.
+
+### Step 1 - Git
+
+Confirm that git has your name and email by running:
+
+```{r}
+#| label: git-check
+#| echo: true
+#| eval: false
+usethis::use_git()
+```
+
+If needed, set the name and email by running:
+
+```{r}
+#| label: git-config-usethis
+#| echo: true
+#| eval: false
+# replace with your name and email
+usethis::use_git_config(user.name = "Jane Doe", user.email = "jane@example.com")
+```
+
+## Can you hear me now?
+
+We now need to make sure that RStudio can communicate with Git.
+
+###  Step 2 - PAT (Personal Access Token)
+
+You can check more details about it [here](https://usethis.r-lib.org/articles/git-credentials.html) and [here](https://happygitwithr.com/https-pat#https-pat).
+
+```{r}
+#| label: pat
+#| echo: true
+#| eval: false
+usethis::create_github_token()
+```
+
+Click [Generate token]{.text-color-highlight-primary} and [copy the token]{.text-color-highlight-secondary} to a safe place.
+
+## Can you hear me now?
+
+Add the [PAT]{.text-color-highlight-primary} to RStudio by running:
+
+### Step 3 - RStudio3
+
+```{r}
+#| label: pat-add
+#| echo: true
+#| eval: false
+gitcreds::gitcreds_set()
+```
+
+## Can you hear me now?
+
+Other useful functions:
+
+```{r}
+#| label: pat-list
+#| echo: true
+#| eval: false
+# Read about PAT
+usethis::gh_token_help()
+
+# List all git settings
+usethis::git_sitrep()
+
+# Check if PAT is set
+gh::gh_whoami()
+```
+
+If everything fails, you can try to set up the PAT manually into your `.Renviron` file.
+
+Simply run:
+```{r}
+#| label: pat-manual
+#| echo: true
+#| eval: false
+usethis::edit_r_environ()
+```
+
+Add a line like this, but substitute your PAT:
+```{bash}
+#| label: pat-manual-2
+#| echo: true
+#| eval: false
+GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
 
 # [Outro]{.bold .r-fit-text} {.title}
 
