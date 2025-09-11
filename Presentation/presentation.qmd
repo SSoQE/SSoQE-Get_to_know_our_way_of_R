@@ -251,40 +251,116 @@ include_local_figure("Printscreens/RStudio_IDE_screenshot.png")
 [wiki](https://en.wikipedia.org/wiki/RStudio)
 :::
 
-## Default Layout
+## 📝 **Source Panel**
+
+<br>
+<br>
 
 :::: {.columns}
 
 ::: {.column width="50%" .incremental}
 
-### 📝 **Source Panel**
-
 - Write and edit your R scripts
 - Save your code for later
 - Syntax highlighting & autocomplete
 
-### 💻 **Console Panel** 
+:::
+
+::: {.column width="50%" }
+
+```{r}
+#| label: rstudio-ide-cut_1
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Printscreens/RStudio_IDE_screenshot-cut_1.png")
+```
+
+:::
+
+::::
+
+## 💻 **Console Panel** 
+
+<br>
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
 
 - Interactive R session
 - See output and results
 - Quick calculations
+
 :::
 
-::: {.column width="50%" .incremental}
+::: {.column width="50%" }
 
-### 🗂️ **Environment Panel**
+```{r}
+#| label: rstudio-ide-cut_2
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Printscreens/RStudio_IDE_screenshot-cut_2.png")
+```
+
+:::
+
+::::
+
+## 🗂️ **Environment Panel**
+
+<br>
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
 
 - Variables in memory
 - Data objects
 - History of commands
 - Version control (git)
 
-### 📊 **Files/Plots Panel** 
+:::
+
+::: {.column width="50%" }
+
+```{r}
+#| label: rstudio-ide-cut_3
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Printscreens/RStudio_IDE_screenshot-cut_3.png")
+```
+
+:::
+
+::::
+
+## 📊 **Files/Plots Panel**
+
+<br>
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
 
 - File browser
 - Plot output
 - Package management
 - Help documentation
+
+:::
+
+::: {.column width="50%" }
+
+```{r}
+#| label: rstudio-ide-cut_4
+#| fig-width: 1
+#| fig-height: 1
+include_local_figure("Printscreens/RStudio_IDE_screenshot-cut_4.png")
+```
+
 :::
 
 ::::
